@@ -14,6 +14,7 @@ public final class FeedReaderContract {
         // No need to call this constructor.
         private FeedEntry() {}
 
-        // TODO: Add table name constant and its columns.
+        public static final String TODO_TABLE = "todo";
+        // TODO: todo rows.
     }
 }

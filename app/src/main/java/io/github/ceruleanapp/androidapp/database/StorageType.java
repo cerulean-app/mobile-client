@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
  * map.
  */
 public enum StorageType {
-    TODO("Todo"); // TODO: Add all storage types.
+    TODO("Todo");
 
     private final String type;
 
