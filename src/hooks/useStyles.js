@@ -26,6 +26,11 @@ const useStyles = () => {
       padding: 10,
       marginLeft: 10,
     },
+    loadingScreen: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   })
 
   return [
