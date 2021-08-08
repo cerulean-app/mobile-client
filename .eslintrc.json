@@ -1,0 +1,25 @@
+{
+  "parserOptions": {
+    "ecmaFeatures": {
+      "legacyDecorators": true
+    },
+    "parser": "babel-eslint"
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "plugin:react/recommended",
+    "google"
+  ],
+  "rules": {
+    "object-curly-spacing": [2, "always"],
+    "require-jsdoc": "off",
+    "react/no-unescaped-entities": "off",
+    "semi": [2, "never"],
+    "max-len": "off",
+    "react/prop-types": "off",
+    "no-invalid-this": "off",
+    "template-curly-spacing" : "off",
+    "linebreak-style": "off",
+    "react/display-name": "off"
+  }
+}
