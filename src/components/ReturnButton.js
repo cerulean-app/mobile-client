@@ -6,7 +6,9 @@ import useStyles from '../hooks/useStyles'
 const ReturnButton = ({ navigation }) => {
   const [styles] = useStyles()
 
-  const handleReturn = () => navigation.navigate('Home')
+  const handleReturn = () => {
+    navigation.goBack()
+  }
 
   return (
     <TouchableHighlight onPress={handleReturn}

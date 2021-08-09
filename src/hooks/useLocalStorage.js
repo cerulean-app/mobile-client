@@ -12,7 +12,6 @@ const useLocalStorage = (key) => {
   }, [storage])
 
   const updateStorage = (newValue) => {
-    console.log(newValue)
     setStorage(newValue)
     if (!newValue && newValue !== false) return AsyncStorage.removeItem(key)
     AsyncStorage.setItem(key, newValue)
