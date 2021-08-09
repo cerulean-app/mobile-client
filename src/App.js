@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 
 import { createStackNavigator } from '@react-navigation/stack'
 import HomeScreen from './screens/HomeScreen'
@@ -8,11 +8,16 @@ import LoginScreen from './screens/LoginScreen'
 import LoadingScreen from './screens/LoadingScreen'
 import useStyles from './hooks/useStyles'
 import RegisterScreen from './screens/RegisterScreen'
+import { StatusBar } from 'react-native'
 
 const { Navigator, Screen } = createStackNavigator()
 
 const App = () => {
   const [styles] = useStyles()
+
+  useLayoutEffect(() => {
+    StatusBar.setBackgroundColor('#222')
+  }, [])
 
   return (
     <NavigationContainer theme={styles.theme()}>
@@ -21,7 +26,7 @@ const App = () => {
         screenOptions={{
           headerMode: 'screen',
           headerTintColor: 'white',
-          headerStyle: { backgroundColor: '#333' },
+          headerStyle: { backgroundColor: '#333', elevation: 6, shadowColor: '#000' },
         }}
       >
         <Screen name='Loading' component={LoadingScreen} />

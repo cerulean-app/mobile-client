@@ -55,35 +55,37 @@ const LoginScreen = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.loginTitle}>Login</Text>
-      <View style={styles.form}>
-        <TextInput
-          style={{ ...styles.textInput, borderBottomColor: error && !username ? '#ed4337' : 'gray' }}
-          value={username}
-          onChangeText={setUsername}
-          placeholder='Username'
-          autoCompleteType='username'
-        />
-        <TextInput
-          style={{ ...styles.textInput, borderBottomColor: error && !password ? '#ed4337' : 'gray' }}
-          secureTextEntry
-          value={password}
-          onChangeText={setPassword}
-          placeholder='Password'
-          autoCompleteType='password'
-        />
-      </View>
-      {error && <Text style={styles.errorText}>{error}</Text>}
-      <Text style={styles.registerSuggestion}>
+    <>
+      <View style={styles.container}>
+        <Text style={styles.loginTitle}>Login</Text>
+        <View style={styles.form}>
+          <TextInput
+            style={{ ...styles.textInput, borderBottomColor: error && !username ? '#ed4337' : 'gray' }}
+            value={username}
+            onChangeText={setUsername}
+            placeholder='Username'
+            autoCompleteType='username'
+          />
+          <TextInput
+            style={{ ...styles.textInput, borderBottomColor: error && !password ? '#ed4337' : 'gray' }}
+            secureTextEntry
+            value={password}
+            onChangeText={setPassword}
+            placeholder='Password'
+            autoCompleteType='password'
+          />
+        </View>
+        {error && <Text style={styles.errorText}>{error}</Text>}
+        <Text style={styles.registerSuggestion}>
         Don't have an account? <Text style={styles.link} onPress={handleRegister}>Register</Text>.
-      </Text>
-      <View style={styles.btnWrapper}>
-        <Button name='log-in-outline' style={styles.loginBtn} onPress={submit} size={20} iconStyle={{ marginRight: 5 }}>
-          <Text style={styles.btnText}>Login</Text>
-        </Button>
+        </Text>
+        <View style={styles.btnWrapper}>
+          <Button name='log-in-outline' style={styles.loginBtn} onPress={submit} size={20} iconStyle={{ marginRight: 5 }}>
+            <Text style={styles.btnText}>Login</Text>
+          </Button>
+        </View>
       </View>
-    </View>
+    </>
   )
 }
 
