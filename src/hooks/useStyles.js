@@ -21,7 +21,8 @@ const useStyles = () => {
     },
     returnButton: {
       padding: 10,
-      marginLeft: 10,
+      marginRight: 5,
+      marginLeft: 5,
     },
     loginTitle: {
       fontSize: 30,
@@ -47,6 +48,7 @@ const useStyles = () => {
       fontSize: 16,
       padding: 0,
       borderBottomColor: 'gray',
+      color: darkMode ? '#fff' : '#000',
       borderBottomWidth: 2,
     },
     loginBtn: {
@@ -108,7 +110,7 @@ const useStyles = () => {
       textAlign: 'center',
       justifyContent: 'center',
       alignSelf: 'center',
-      color: darkMode ? '#fff' : '#000',
+      color: '#fff',
       fontSize: 16,
       marginRight: 5,
     },
@@ -126,6 +128,61 @@ const useStyles = () => {
       color: darkMode ? '#fff' : '#000',
       fontSize: 22,
       margin: 10,
+    },
+    mainTitle: {
+      fontSize: 28,
+      color: darkMode ? '#eee' : '#333',
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginTop: 20,
+    },
+    actionButton: {
+      borderWidth: 1,
+      borderColor: 'rgba(0,0,0,0.2)',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: 70,
+      position: 'absolute',
+      bottom: 20,
+      right: 20,
+      height: 70,
+      backgroundColor: '#2b79ff',
+      borderRadius: 100,
+    },
+    todoItem: {
+      borderRadius: 7,
+      width: '100%',
+      margin: 10,
+      backgroundColor: darkMode ? '#555' : '#fff',
+      elevation: 7,
+      padding: 10,
+      height: 100,
+    },
+    subTitle: {
+      fontSize: 26,
+      color: darkMode ? '#eee' : '#333',
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginTop: 5,
+    },
+    calendarModal: {
+      backgroundColor: darkMode ? '#555' : '#eee',
+      borderRadius: 4,
+      padding: 10,
+      height: 250,
+    },
+    calendarAddBtn: {
+      width: 120,
+      fontSize: 16,
+      backgroundColor: 'green',
+    },
+    removeDate: {
+      position: 'absolute',
+      top: 5,
+      right: 20,
+    },
+    calendarButton: {
+      color: darkMode ? '#fff' : '#333',
     },
   })
 

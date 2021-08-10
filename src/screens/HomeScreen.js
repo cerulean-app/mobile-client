@@ -1,21 +1,26 @@
 import React, { useLayoutEffect, Fragment, useEffect, useState } from 'react'
-import { Text } from 'react-native'
+import { FlatList, Text, TouchableOpacity } from 'react-native'
 import useStyles from '../hooks/useStyles'
 import SettingsButton from '../components/SettingsButton'
 import useAuth from '../hooks/useAuth'
 import { backendUri } from '../config.json'
 import TodoItem from '../components/TodoItem'
+import Loading from '../components/Loading'
+import NoItems from '../components/NoItems'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 const HomeScreen = ({ navigation }) => {
   const token = useAuth()
-  const styles = useStyles()
-  const [todos, setTodos] = useState([])
-  console.log(todos)
+  const [styles] = useStyles()
+  const [todos, setTodos] = useState(null)
 
   useEffect(() => {
     // Still loading.
     if (token === false) return
     else if (!token) return navigation.navigate('Login')
+
+    // Avoid multiple requests.
+    if (todos !== null) return
 
     // Retrieve all TODOs.
     fetch(backendUri + 'todos', { headers: { Authorization: token } })
@@ -31,17 +36,37 @@ const HomeScreen = ({ navigation }) => {
     })
   }, [navigation])
 
-  // Item renderer.
-  const renderItem = ({ item }) => {
-    // TODO: Do the rest.
-    return (
-      <TodoItem />
-    )
+  // Callback called by the TodoItem that was pressed.
+  const handleTodoDetails = (item) => {
+
   }
+
+  const handleCreate = () => {
+    navigation.navigate('CreateNew')
+  }
+
+  // Item renderer.
+  const renderItem = ({ item }) => (
+    <TodoItem onItemPress={handleTodoDetails} { ...item } />
+  )
 
   return (
     <>
-      <Text style={styles.fontColor}>Hello, world</Text>
+      <Text style={styles.mainTitle}>Your To-do list</Text>
+      {todos === null ? <Loading /> :
+          todos === [] ? <NoItems /> :
+      <FlatList
+        data={todos}
+        renderItem={renderItem}
+        keyExtractor={({ id }) => id}
+      />}
+      <TouchableOpacity
+        style={styles.actionButton}
+        activeOpacity={0.7}
+        onPress={handleCreate}
+      >
+        <Icon name='add-outline' size={30} color='#fff' />
+      </TouchableOpacity>
     </>
   )
 }

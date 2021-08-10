@@ -9,6 +9,7 @@ import LoadingScreen from './screens/LoadingScreen'
 import useStyles from './hooks/useStyles'
 import RegisterScreen from './screens/RegisterScreen'
 import { StatusBar } from 'react-native'
+import CreateNewScreen from './screens/CreateNewScreen'
 
 const { Navigator, Screen } = createStackNavigator()
 
@@ -22,11 +23,11 @@ const App = () => {
   return (
     <NavigationContainer theme={styles.theme()}>
       <Navigator
-        initialRouteName='Loading' // TODO: Do this another way.
+        initialRouteName='Loading'
         screenOptions={{
           headerMode: 'screen',
-          headerTintColor: 'white',
-          headerStyle: { backgroundColor: '#333', elevation: 6, shadowColor: '#000' },
+          headerTintColor: styles.scheme() === 'dark' ? '#fff' : '#000',
+          headerStyle: { backgroundColor: styles.scheme() === 'dark' ? '#333' : '#fff', elevation: 6, shadowColor: '#000' },
         }}
       >
         <Screen name='Loading' component={LoadingScreen} />
@@ -34,6 +35,7 @@ const App = () => {
         <Screen name='Login' component={LoginScreen} />
         <Screen name='Register' component={RegisterScreen} />
         <Screen name='Settings' component={SettingsScreen} />
+        <Screen name='CreateNew' component={CreateNewScreen} />
       </Navigator>
     </NavigationContainer>
   )

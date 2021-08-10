@@ -17,7 +17,7 @@ const ReturnButton = ({ navigation }) => {
       underlayColor='rgba(0,0,0,0)'
     >
       <View>
-        <Icon name='arrow-back-outline' color='#fff' size={28} />
+        <Icon name='arrow-back-outline' color={styles.scheme() === 'dark' ? '#fff' : '#000'} size={28} />
       </View>
     </TouchableHighlight>
   )

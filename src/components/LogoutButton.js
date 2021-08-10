@@ -34,7 +34,7 @@ const LogoutButton = ({ navigation }) => {
         underlayColor='rgba(0,0,0,0)'
       >
         <View>
-          <Icon name='log-out-outline' color='#fff' size={28} />
+          <Icon name='log-out-outline' color={styles.scheme() === 'dark' ? '#fff' : '#000'} size={28} />
         </View>
       </TouchableHighlight>
       <Modal isVisible={visible} onBackdropPress={() => setVisible(!visible)}>
