@@ -63,7 +63,7 @@ const LoginScreen = ({ navigation }) => {
             style={{ ...styles.textInput, borderBottomColor: error && !username ? '#ed4337' : 'gray' }}
             value={username}
             onChangeText={setUsername}
-            placeholderTextColor={styles.scheme() === 'dark' ? '#ggg' : 'gray'}
+            placeholderTextColor={styles.scheme() === 'dark' ? '#bbb' : 'gray'}
             placeholder='Username'
             autoCompleteType='username'
           />
@@ -72,7 +72,7 @@ const LoginScreen = ({ navigation }) => {
             secureTextEntry
             value={password}
             onChangeText={setPassword}
-            placeholderTextColor={styles.scheme() === 'dark' ? '#ggg' : 'gray'}
+            placeholderTextColor={styles.scheme() === 'dark' ? '#bbb' : 'gray'}
             placeholder='Password'
             autoCompleteType='password'
           />

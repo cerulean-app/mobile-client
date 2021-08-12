@@ -23,9 +23,7 @@ const HomeScreen = ({ navigation }) => {
     if (todos !== null) return
 
     // Retrieve all TODOs.
-    fetch(backendUri + 'todos', { headers: { Authorization: token } })
-        .then((res) => res.json())
-        .then(setTodos)
+    refresh()
   }, [token])
 
   useLayoutEffect(() => {
@@ -36,13 +34,22 @@ const HomeScreen = ({ navigation }) => {
     })
   }, [navigation])
 
+  const refresh = () => {
+    console.log('Refreshing...')
+    fetch(backendUri + 'todos', { headers: { Authorization: token } })
+        .then((res) => res.json())
+        .then(setTodos)
+  }
+
   // Callback called by the TodoItem that was pressed.
   const handleTodoDetails = (item) => {
 
   }
 
   const handleCreate = () => {
-    navigation.navigate('CreateNew')
+    navigation.navigate('CreateNew', {
+      onGoBack: (item) => setTodos([item, ...todos]),
+    })
   }
 
   // Item renderer.

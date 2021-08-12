@@ -174,7 +174,7 @@ const useStyles = () => {
     calendarAddBtn: {
       width: 120,
       fontSize: 16,
-      backgroundColor: 'green',
+      backgroundColor: '#4BB543',
     },
     removeDate: {
       position: 'absolute',
@@ -183,6 +183,40 @@ const useStyles = () => {
     },
     calendarButton: {
       color: darkMode ? '#fff' : '#333',
+    },
+    createField: {
+      height: 40,
+      width: '100%',
+      padding: 4,
+      margin: 5,
+      flexDirection: 'row',
+    },
+    createFieldIcon: {
+      alignSelf: 'center',
+    },
+    createFieldText: {
+      width: '100%',
+      height: 40,
+      marginTop: 5,
+      marginHorizontal: 8,
+      color: darkMode ? '#fff' : '#333',
+    },
+    createFieldInput: {
+      height: 26,
+      width: '100%',
+      padding: 0,
+      margin: 0,
+      marginHorizontal: 8,
+      fontSize: 14,
+      alignSelf: 'center',
+    },
+    horizontalLine: {
+      borderBottomColor: darkMode ? '#fff' : '#bbb',
+      borderBottomWidth: 1,
+      marginVertical: 10,
+    },
+    pickerItem: {
+      color: darkMode ? '#fff' : '#bbb',
     },
   })
 

@@ -79,7 +79,7 @@ const RegisterScreen = ({ navigation }) => {
           style={{ ...styles.textInput, borderBottomColor: error && !username ? '#ed4337' : 'gray' }}
           value={username}
           onChangeText={setUsername}
-          placeholderTextColor={styles.scheme() === 'dark' ? '#ggg' : 'gray'}
+          placeholderTextColor={styles.scheme() === 'dark' ? '#bbb' : 'gray'}
           placeholder='Username'
           autoCompleteType='username'
         />
@@ -87,7 +87,7 @@ const RegisterScreen = ({ navigation }) => {
           style={{ ...styles.textInput, borderBottomColor: error && !email ? '#ed4337' : 'gray' }}
           value={email}
           onChangeText={setEmail}
-          placeholderTextColor={styles.scheme() === 'dark' ? '#ggg' : 'gray'}
+          placeholderTextColor={styles.scheme() === 'dark' ? '#bbb' : 'gray'}
           placeholder='E-mail'
           autoCompleteType='email'
         />
@@ -96,7 +96,7 @@ const RegisterScreen = ({ navigation }) => {
           secureTextEntry
           value={password}
           onChangeText={setPassword}
-          placeholderTextColor={styles.scheme() === 'dark' ? '#ggg' : 'gray'}
+          placeholderTextColor={styles.scheme() === 'dark' ? '#bbb' : 'gray'}
           placeholder='Password'
           autoCompleteType='password'
         />
