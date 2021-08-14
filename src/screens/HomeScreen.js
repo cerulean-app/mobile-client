@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, Fragment, useEffect, useState } from 'react'
-import { FlatList, Text, TouchableOpacity } from 'react-native'
+import { FlatList, Text, TouchableOpacity, LogBox } from 'react-native'
 import useStyles from '../hooks/useStyles'
 import SettingsButton from '../components/SettingsButton'
 import useAuth from '../hooks/useAuth'
@@ -47,6 +47,8 @@ const HomeScreen = ({ navigation }) => {
   }
 
   const handleCreate = () => {
+    // Suppress warning for non-serializable params.
+    LogBox.ignoreLogs(['Non-serializable'])
     navigation.navigate('CreateNew', {
       onGoBack: (item) => setTodos([item, ...todos]),
     })
@@ -54,7 +56,7 @@ const HomeScreen = ({ navigation }) => {
 
   // Item renderer.
   const renderItem = ({ item }) => (
-    <TodoItem onItemPress={handleTodoDetails} { ...item } />
+    <TodoItem onItemPress={handleTodoDetails} item={item} />
   )
 
   return (

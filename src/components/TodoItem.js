@@ -1,18 +1,24 @@
 import React from 'react'
-import { View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
 import useStyles from '../hooks/useStyles'
 
 const TodoItem = ({ onItemPress, item }) => {
   const [styles] = useStyles()
 
   const handleSelfPress = () => {
-    
+    console.log('Self press')
   }
 
   return (
-    <View style={styles.todoItem}>
+    <Pressable style={styles.todoItem} onPress={handleSelfPress}>
+      <View style={styles.todoItemLeft}>
 
-    </View>
+      </View>
+      <View style={styles.todoItemRight}>
+        <Text>{item.name}</Text>
+        <Text>{item.description || ''}</Text>
+      </View>
+    </Pressable>
   )
 }
 

@@ -6,7 +6,7 @@ import DatePicker from 'react-native-date-picker'
 import Modal from 'react-native-modal'
 import Icon, { Button } from 'react-native-vector-icons/Ionicons'
 import moment from 'moment'
-import backendUri from '../config.json'
+import { backendUri } from '../config.json'
 import useAuth from '../hooks/useAuth'
 import { Picker } from '@react-native-picker/picker'
 
@@ -34,15 +34,24 @@ const CreateNewScreen = ({ navigation, route }) => {
   }
 
   const submit = async () => {
+    // Reset errors.
+    if (error) setError(null)
+
+    // Form validation.
+    if (!name) return setError('A title is required.')
+
     try {
-      const body = {
+      const body = JSON.stringify({
         name,
-        description,
-        repeating,
+        description: description || null,
+        repeating: repeating || null,
         dueDate: selectedDate,
-      }
-      const res = await fetch(backendUri + 'todo', { headers: { Authorization: token }, method: 'POST', body })
-      if (!res.ok) return setError('Could not create To-do. Error ' + res.status)
+      })
+      console.log(backendUri + 'todo')
+      console.log(body)
+      const res = await fetch(backendUri + 'todo', { headers: { 'Authorization': token, 'Content-Type': 'application/json' }, method: 'POST', body })
+      console.log(await res.text())
+      if (!res.ok) return setError('Could not create To-do. Error ' + res.status + '.')
 
       const todoItem = await res.json()
       route.params.onGoBack(todoItem)
@@ -127,6 +136,7 @@ const CreateNewScreen = ({ navigation, route }) => {
             <Text style={styles.btnText}>Finish</Text>
           </Button>
         </View>
+        {error && <Text style={styles.errorText}>{error}</Text>}
       </View>
       <Modal isVisible={visible} onBackdropPress={() => setVisible(!visible)}>
         <View style={styles.calendarModal}>

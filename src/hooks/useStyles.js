@@ -150,13 +150,19 @@ const useStyles = () => {
       borderRadius: 100,
     },
     todoItem: {
-      borderRadius: 7,
       width: '100%',
       margin: 10,
-      backgroundColor: darkMode ? '#555' : '#fff',
-      elevation: 7,
       padding: 10,
-      height: 100,
+      backgroundColor: 'red',
+      color: darkMode ? '#fff' : '#333',
+      height: 70,
+      flexDirection: 'row',
+    },
+    todoItemLeft: {
+      width: 20,
+      alignSelf: 'center',
+    },
+    todoItemRight: {
     },
     subTitle: {
       fontSize: 26,
